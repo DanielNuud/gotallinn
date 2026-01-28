@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
 @Embeddable
@@ -15,25 +16,24 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class StopTimeId implements Serializable {
+public class CalendarDateId implements Serializable {
 
-    @Column(name = "trip_id")
-    private String tripId;
+    @Column(name = "service_id")
+    private String serviceId;
 
-    @Column(name = "stop_sequence")
-    private Integer stopSequence;
+    private Date date;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StopTimeId that = (StopTimeId) o;
-        return Objects.equals(tripId, that.tripId) &&
-                Objects.equals(stopSequence, that.stopSequence);
+        CalendarDateId that = (CalendarDateId) o;
+        return Objects.equals(serviceId, that.serviceId) &&
+                Objects.equals(date, that.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(tripId, stopSequence);
+        return Objects.hash(serviceId, date);
     }
 }

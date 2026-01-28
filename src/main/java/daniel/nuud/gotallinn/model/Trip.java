@@ -1,9 +1,6 @@
 package daniel.nuud.gotallinn.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,15 +14,17 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Trip {
 
-    @Column(name = "route_id")
-    private String routeId;
-
-    @Column(name = "service_id")
-    private String serviceId;
-
     @Id
     @Column(name = "trip_id")
     private String tripId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "route_id")
+    private Route route;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "service_id")
+    private Calendar calendar;
 
     @Column(name = "trip_headsign")
     private String tripHeadsign;

@@ -16,33 +16,44 @@ import java.util.List;
 public class StopService implements CommandLineRunner {
 
     private final DataImport dataImport;
-    private final StopTimeRepository stopTimeRepository;
 
     Path pathOfStops = Paths.get("src/main/resources/files/stops.txt");
     Path pathOfRoutes = Paths.get("src/main/resources/files/routes.txt");
     Path pathOfTrips = Paths.get("src/main/resources/files/trips.txt");
     Path pathOfStoptimes = Paths.get("src/main/resources/files/stop_times.txt");
+    Path pathOfCalendar = Paths.get("src/main/resources/files/calendar.txt");
+    Path pathOfCalendarDates = Paths.get("src/main/resources/files/calendar_dates.txt");
+    Path pathOfAgency = Paths.get("src/main/resources/files/agency.txt");
 
     @Override
     public void run(String... args) {
-//        dataImport.saveDataStops(pathOfStops);
-//        dataImport.saveDataRoutes(pathOfRoutes);
-//        dataImport.saveDataTrips(pathOfTrips);
-//        dataImport.saveDataStopTimes(pathOfStoptimes);
 
-        String stopId = "162579"; // подставь свой
+        dataImport.saveDataAgency(pathOfAgency);
+        dataImport.saveDataCalendar(pathOfCalendar);
+        dataImport.saveDataStops(pathOfStops);
 
-        List<ArrivalView> arrivals = stopTimeRepository.findArrivalsByStopId(stopId);
+        dataImport.saveDataRoutes(pathOfRoutes);
 
-        arrivals.stream()
-                .limit(20)
-                .forEach(a -> System.out.printf(
-                        "%s | %s | %s -> маршрут %s (%s)%n",
-                        a.getArrivalTime(),
-                        a.getStopName(),
-                        a.getTripId(),
-                        a.getRouteShortName(),
-                        a.getDirectionCode()
-                ));
+        dataImport.saveDataTrips(pathOfTrips);
+
+        dataImport.saveDataStopTimes(pathOfStoptimes);
+        dataImport.saveDataCalendarDate(pathOfCalendarDates);
+
+        System.out.println("Ready");
+
+//        String stopId = "162579";
+//
+//        List<ArrivalView> arrivals = stopTimeRepository.findArrivalsByStopId(stopId);
+//
+//        arrivals.stream()
+//                .limit(20)
+//                .forEach(a -> System.out.printf(
+//                        "%s | %s | %s -> маршрут %s (%s)%n",
+//                        a.getArrivalTime(),
+//                        a.getStopName(),
+//                        a.getTripId(),
+//                        a.getRouteShortName(),
+//                        a.getDirectionCode()
+//                ));
     }
 }

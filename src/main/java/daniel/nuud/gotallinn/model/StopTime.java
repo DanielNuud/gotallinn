@@ -1,9 +1,6 @@
 package daniel.nuud.gotallinn.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,19 +13,20 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class StopTime {
+public class StopTime  {
 
     @EmbeddedId
     private StopTimeId id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "stop_id")
+    private Stop stop;
 
     @Column(name = "arrival_time")
     private String arrivalTime;
 
     @Column(name = "departure_time")
     private String departureTime;
-
-    @Column(name = "stop_id")
-    private String stopId;
 
     @Column(name = "pickup_type")
     private Integer pickupType;
