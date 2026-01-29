@@ -6,19 +6,29 @@ import lombok.RequiredArgsConstructor;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Component
 @RequiredArgsConstructor
-public class DataImport {
+public class DataImport implements CommandLineRunner {
+
+    Path pathOfStops = Paths.get("src/main/resources/files/stops.txt");
+    Path pathOfRoutes = Paths.get("src/main/resources/files/routes.txt");
+    Path pathOfTrips = Paths.get("src/main/resources/files/trips.txt");
+    Path pathOfStoptimes = Paths.get("src/main/resources/files/stop_times.txt");
+    Path pathOfCalendar = Paths.get("src/main/resources/files/calendar.txt");
+    Path pathOfCalendarDates = Paths.get("src/main/resources/files/calendar_dates.txt");
+    Path pathOfAgency = Paths.get("src/main/resources/files/agency.txt");
 
     private final StopRepository stopRepository;
     private final RouteRepository routeRepository;
@@ -27,6 +37,21 @@ public class DataImport {
     private final CalendarDateRepository calendarDateRepository;
     private final CalendarRepository calendarRepository;
     private final AgencyRepository agencyRepository;
+
+    @Override
+    public void run(String... args) throws Exception {
+
+//        saveDataAgency(pathOfAgency);
+//        saveDataCalendar(pathOfCalendar);
+//        saveDataStops(pathOfStops);
+//
+//        saveDataRoutes(pathOfRoutes);
+//
+//        saveDataTrips(pathOfTrips);
+//
+//        saveDataStopTimes(pathOfStoptimes);
+//        saveDataCalendarDate(pathOfCalendarDates);
+    }
 
     public void saveDataStops(Path path) {
 

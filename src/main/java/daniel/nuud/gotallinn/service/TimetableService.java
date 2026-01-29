@@ -1,10 +1,8 @@
 package daniel.nuud.gotallinn.service;
 
 
-import daniel.nuud.gotallinn.model.ArrivalView;
 import daniel.nuud.gotallinn.model.Route;
-import daniel.nuud.gotallinn.repository.RouteRepository;
-import daniel.nuud.gotallinn.repository.StopTimeRepository;
+import daniel.nuud.gotallinn.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,13 +14,15 @@ public class TimetableService {
 
     private final StopTimeRepository stopTimeRepository;
     private final RouteRepository routeRepository;
-
-    public List<ArrivalView> getArrivalsByStopId(String stopId) {
-        return stopTimeRepository.findArrivalsByStopId(stopId);
-    }
+    private final AgencyRepository agencyRepository;
+    private final CalendarRepository calendarRepository;
+    private final StopRepository stopRepository;
+    private final CalendarDateRepository calendarDateRepository;
 
     public List<Route> getRoutesByAgencyId(String agencyId) {
         return routeRepository.findByAgencyId(agencyId);
     }
+
+
 
 }
