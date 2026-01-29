@@ -6,6 +6,22 @@ Real-time public transportation application for Tallinn, Estonia. Backend API bu
 
 ---
 
+## 🎨 Design
+
+Mobile app UI/UX mockups created in Figma:
+
+[![View in Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/design/G0sIoZLGIEzl6yJV8Z8Ygb/GoTallinn?node-id=0-1&t=SCoFqh7V8pUfViyo-0)
+
+**Includes:**
+- 🗺️ Map view with nearby stops
+- 📍 Stop details & real-time arrivals
+- 🚌 Route information
+- 🔍 Search functionality
+
+> Designs are work in progress. Final implementation may vary.
+
+---
+
 ## 🎯 Features
 
 -  View real-time schedules for any stop in Tallinn
@@ -17,11 +33,7 @@ Real-time public transportation application for Tallinn, Estonia. Backend API bu
 -  Route planning between two points
 
 ---
-## 🎨 Design
 
-[![View in Figma](https://img.shields.io/badge/View%20in-Figma-F24E1E?logo=figma&logoColor=white)](https://www.figma.com/design/G0sIoZLGIEzl6yJV8Z8Ygb/GoTallinn?node-id=0-1&p=f&t=SCoFqh7V8pUfViyo-0)
-
----
 ## 🛠️ Tech Stack
 
 ### Backend
