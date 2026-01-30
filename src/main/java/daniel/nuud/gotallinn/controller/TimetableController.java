@@ -1,5 +1,6 @@
 package daniel.nuud.gotallinn.controller;
 
+import daniel.nuud.gotallinn.dto.RouteDTO;
 import daniel.nuud.gotallinn.model.Route;
 import daniel.nuud.gotallinn.service.TimetableService;
 import lombok.RequiredArgsConstructor;
@@ -17,8 +18,14 @@ public class TimetableController {
 
     private final TimetableService timetableService;
 
+//    @GetMapping("/{agencyId}")
+//    public List<Route> getRoutesByAgencyId(@PathVariable String agencyId) {
+//        return timetableService.getRoutesByAgencyId(agencyId);
+//    }
+
     @GetMapping("/{agencyId}")
-    public List<Route> getRoutesByAgencyId(@PathVariable String agencyId) {
-        return timetableService.getRoutesByAgencyId(agencyId);
+    public List<RouteDTO> getRoutesByAgencyId(@PathVariable String agencyId) {
+        return timetableService.getRoutesDTOByAgencyId(agencyId);
     }
+
 }

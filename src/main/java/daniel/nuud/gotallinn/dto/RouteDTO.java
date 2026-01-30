@@ -1,9 +1,15 @@
 package daniel.nuud.gotallinn.dto;
 
-import lombok.Data;
-
 public record RouteDTO (
         String routeShortName,
         String routeLongName,
-        String routeColor
+        String routeColor,
+        String routeType,
+        boolean monday,
+        boolean tuesday,
+        boolean wednesday,
+        boolean thursday,
+        boolean friday,
+        boolean saturday,
+        boolean sunday
 ) {}

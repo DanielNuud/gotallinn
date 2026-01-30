@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TripRepository extends JpaRepository<Trip, String> {
+    Trip findFirstByRoute_RouteId(String routeId);
 }
